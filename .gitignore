@@ -1,0 +1,21 @@
+/*
+
+# README
+!/README.md
+
+# Tacking ignore file
+!/.gitignore
+
+# parser (bison) and scanner (flex)
+!/parser.y
+!/scanner.l
+
+# Examples directory
+!/examples
+
+# Makefile
+!/Makefile
+
+# C code
+!/asparser.c
+!/asparser.h
