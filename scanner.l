@@ -19,14 +19,15 @@ STATNAME [A-Z0-9][A-Za-z]+
 
 "OPTIMUM FOUND"		{return OPTIMUMFOUND;}
 "SATISFIABLE"		{return SATISFIABLE;}
-"UNSATISFIABLE"		{return UNSATISFIABLE;} 
+"UNSATISFIABLE"		{return UNSATISFIABLE;}
+"UNKNOWN"			{return UNKNOWN;}
 "Answer:"			{return ANSWER;}
 
 "1st Model"		{return STAT_TIME_FIRST_MODEL;}
 
 
 
-("asprin"|"clingo").+\n.+\n"Solving..."	{ yylval.strval=strCopy(yytext); return HEADER;}
+("asprin"|"clingo").+\n.+\n"Solving..."*	{ yylval.strval=strCopy(yytext); return HEADER;}
 
 {STATNAME}				{ yylval.strval=strCopy(yytext); return STATNAME; }
 {DIGIT}+"."{DIGIT}+s	{ yylval.strval=strCopy(yytext); return SECONDS;  }

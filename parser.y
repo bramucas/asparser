@@ -46,6 +46,7 @@ char* printAtoms(){
 %token OPTIMUMFOUND
 %token SATISFIABLE
 %token UNSATISFIABLE
+%token UNKNOWN
 
 %token  NUMBER     /* integer   */
 %token  ID         /* identifier */
@@ -86,6 +87,7 @@ output:
     output_header answerset_list stat_list              {exit(0);}
   | output_header answerset_list SATISFIABLE stat_list  {exit(0);}
   | output_header UNSATISFIABLE stat_list               {exit(0);}
+  | output_header UNKNOWN                               {printf("asprin/clingo ERROR: failed while parsin the program.\n");exit(0);}
   ;
 
 answerset_list:
